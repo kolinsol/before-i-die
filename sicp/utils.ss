@@ -6,3 +6,5 @@
 
 (define (halve x)
   (/ x 2))
+
+(define rem remainder)
