@@ -18,7 +18,12 @@
 (define (cube x)
   (* x x x))
 
+(define (avg a b)
+  (/ (+ a b) 2))
+
 (define rem remainder)
+(define pos? positive?)
+(define neg? negative?)
 
 (define (^ x n)
   (define (iter acc x n)
