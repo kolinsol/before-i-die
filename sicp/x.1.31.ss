@@ -1,0 +1,10 @@
+(define (mul-rec a b term next)
+  (cond ((> a b) 1)
+        (else (* (term a)
+                 (mul-rec (next a) b term next)))))
+
+(define (mul-iter a b term next)
+  (define (iter acc x)
+    (cond ((> x b) acc)
+          (else (iter (* acc (term x)) (next x)))))
+  (iter 1 a))
