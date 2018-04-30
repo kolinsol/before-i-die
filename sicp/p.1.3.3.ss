@@ -1,0 +1,35 @@
+(load "utils.ss")
+
+(define (close-enough? x y)
+  (< (abs (- x y)) 0.001))
+
+(define (search f neg pos)
+  (let ((mid (avg neg pos)))
+    (cond ((close-enough? neg pos) mid)
+          (else
+            (let ((test (f mid)))
+              (cond ((pos? test)
+                     (search f neg mid))
+                    ((neg? test)
+                     (search f mid pos))
+                    (else mid)))))))
+
+(define (half-interval-method f a b)
+  (let ((a-value (f a))
+        (b-value (f b)))
+    (cond ((and (neg? a-value) (pos? b-value))
+           (search f a b))
+          ((and (neg? b-value) (pos? a-value))
+           (search f b a))
+          (else
+            (error 'half-interval-method "values are not of opposite signs" a b)))))
+
+(define (fixed-point f first-guess)
+  (let ((tolerance 0.001))
+    (define (close-enough? a b)
+      (< (abs (- a b)) tolerance))
+    (define (try guess)
+      (let ((next (f guess)))
+        (cond ((close-enough? guess next) next)
+              (try next))))
+    (try first-guess)))
