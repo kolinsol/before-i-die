@@ -31,5 +31,5 @@
     (define (try guess)
       (let ((next (f guess)))
         (cond ((close-enough? guess next) next)
-              (try next))))
+              (else (try next)))))
     (try first-guess)))
