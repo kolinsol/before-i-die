@@ -1,8 +1,5 @@
 (load "utils.ss")
-
-(define (make-rat a b)
-  (let ((g (gcd a b)))
-    (cons (/ a g) (/ b g))))
+(load "x.2.1.ss") ; import make-rat
 
 (define numer car)
 (define denom cdr)
