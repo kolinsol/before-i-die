@@ -1,4 +1,4 @@
-# skipped excercises:
+# skipped exercises:
   - 1.13
   - 1.19
   - 1.36
