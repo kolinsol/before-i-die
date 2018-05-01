@@ -21,6 +21,9 @@
 (define (avg a b)
   (/ (+ a b) 2))
 
+(define (negate x)
+  (- x))
+
 (define rem remainder)
 (define pos? positive?)
 (define neg? negative?)
