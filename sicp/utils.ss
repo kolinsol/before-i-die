@@ -32,3 +32,7 @@
           (else (iter (* acc x) x (- n 1)))))
   (iter 1 x n))
 
+(define (gcd a b)
+  (cond ((= b 0) a)
+        (else (gcd b (rem a b)))))
+
