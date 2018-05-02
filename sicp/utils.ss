@@ -42,3 +42,6 @@
   (cond ((= b 0) a)
         (else (gcd b (rem a b)))))
 
+(define (range a b)
+  (cond ((> a b) '())
+        (else (cons a (range (inc a) b)))))
