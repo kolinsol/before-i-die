@@ -24,6 +24,9 @@
 (define (negate x)
   (- x))
 
+(define nil '())
+(define true #t)
+(define false #f)
 (define rem remainder)
 (define pos? positive?)
 (define neg? negative?)
