@@ -1,6 +1,8 @@
 (load "x.2.7.ss") ; import interval constructor functions
-(load "x.2.8.ss") ; impoert sub-interval
+(load "x.2.8.ss") ; import sub-interval
 (load "x.2.10.ss") ; import modified div-interval
+(load "x.2.11.ss") ; import center-width functions
+(load "x.2.12.ss") ; import center-percent functions
 
 (define (add-interval x y)
   (make-interval (+ (lower-bound x) (lower-bound y))
