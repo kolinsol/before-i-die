@@ -9,7 +9,7 @@
 
 (define (accumulate f a l)
   (cond ((null? l) a)
-        (else (accumulate f (f (car l) a) (cdr l)))))
+        (else (f (car l) (accumulate f a (cdr l))) )))
 
 (define (enum-interval a b)
   (cond ((> a b) '())
