@@ -1,0 +1,6 @@
+(define (tree-map f t)
+  (cond ((null? t) '())
+        ((atom? (car t))
+         (cons (f (car t)) (tree-map f (cdr t))))
+        (else (cons (tree-map f (car t))
+                    (tree-map f (cdr t))))))
