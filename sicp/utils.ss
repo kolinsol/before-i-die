@@ -24,6 +24,12 @@
 (define (negate x)
   (- x))
 
+(define (true? v)
+  (equal? v #t))
+
+(define (false? v)
+  (equal? v #f))
+
 (define nil '())
 (define true #t)
 (define false #f)
@@ -45,3 +51,19 @@
 (define (range a b)
   (cond ((> a b) '())
         (else (cons a (range (inc a) b)))))
+
+(define (all f l)
+  (cond ((null? l) #t)
+        ((true? (f (car l))) (all f (cdr l)))
+        (else #f)))
+
+(define (any f l)
+  (cond ((null? l) #f)
+        ((true? (f (car l))) #t)
+        (else (any f (cdr l)))))
+
+(define (accumulate f a l)
+  (cond ((null? l) a)
+        (else
+          (f (car l)
+             (accumulate f a (cdr l))))))
