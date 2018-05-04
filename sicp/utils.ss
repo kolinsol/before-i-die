@@ -67,3 +67,6 @@
         (else
           (f (car l)
              (accumulate f a (cdr l))))))
+
+(define (flatmap f t)
+  (accumulate append '() (map f t)))
