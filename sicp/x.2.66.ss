@@ -1,0 +1,13 @@
+(define (lookup-tree k t)
+  (cond ((null? t) #f)
+        ((= k (key t))
+         (value t))
+        ((> k (key t))
+         (lookup-tree k (right t)))
+        ((< k (key t))
+         (lookup-tree k (left t)))))
+
+(define key caadr)
+(define value cadadr)
+(define left car)
+(define right caddr)
