@@ -1,0 +1,5 @@
+(define (adjoin-ord-set x s)
+  (cond ((null? s) (list x))
+        ((= x (car s)) s)
+        ((< x (car s)) (cons x s))
+        (else (cons (car s) (adjoin-ord-set x (cdr s))))))

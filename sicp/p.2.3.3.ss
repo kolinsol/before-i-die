@@ -1,4 +1,5 @@
 (load "x.2.59.ss") ; load union-set
+(load "x.2.61.ss") ; load adjoin-ord-set
 
 (define (element-of-set? x s)
   (cond ((null? s) #f)
