@@ -63,3 +63,11 @@
            (left-branch s)
            (entry s)
            (adjoin-tree-set x (right-branch s))))))
+
+(define (lookup k records)
+  (cond ((null? records) #f)
+        ((equal? k (key (car records)))
+         (car records))
+        (else (lookup k (cdr records)))))
+
+(define key car)
