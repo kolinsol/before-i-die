@@ -34,3 +34,32 @@
                    (intersection-ord-set (cdr s1) s2))
                   ((> x1 x2)
                    (intersection-ord-set s1 (cdr s2))))))))
+
+(define entry cadr)
+(define left-branch car)
+(define right-branch caddr)
+(define (make-tree left entry right)
+  (list left entry right))
+
+(define (element-of-tree-set? x s)
+  (cond ((null? s) #f)
+        ((= x (entry s)) #t)
+        ((< x (entry s))
+         (element-of-tree-set? x (left-branch s)))
+        ((> x (entry s))
+         (element-of-tree-set? x (right-branch s)))))
+
+(define (adjoin-tree-set x s)
+  (cond ((null? s)
+         (make-tree '() x '()))
+        ((= x (entry s)) s)
+        ((< x (entry s))
+         (make-tree
+           (adjoin-tree-set x (left-branch s))
+           (entry s)
+           (right-branch s)))
+        ((> x (entry s))
+         (make-tree
+           (left-branch s)
+           (entry s)
+           (adjoin-tree-set x (right-branch s))))))
