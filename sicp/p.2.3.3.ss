@@ -16,3 +16,19 @@
                (intersection-set (cdr s1) s2)))
         (else (intersection-set (cdr s1) s2))))
 
+(define (element-of-ord-set? x s)
+  (cond ((null? s) #f)
+        ((< x (car s)) #f)
+        (else (element-of-ord-set? x (cdr s)))))
+
+(define (intersection-ord-set s1 s2)
+  (cond ((or (null? s1) (null? s2)) '())
+        (else
+          (let ((x1 (car s1)) (x2 (car s2)))
+            (cond ((= x1 x2)
+                   (cons x1
+                         (intersection-ord-set (cdr s1) (cdr s2))))
+                  ((< x1 x2)
+                   (intersection-ord-set (cdr s1) s2))
+                  ((> x1 x2)
+                   (intersection-ord-set s1 (cdr s2))))))))
