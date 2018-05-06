@@ -1,3 +1,5 @@
+(load "x.2.59.ss") ; load union-set
+
 (define (element-of-set? x s)
   (cond ((null? s) #f)
         ((equal? x (car s)) #t)
