@@ -1,6 +1,7 @@
 (load "utils.ss")
-(load "x.2.56.ss") ; load exponentiation
-(load "x.2.57.ss") ; load sum and product
+; (load "x.2.56.ss") ; load exponentiation
+; (load "x.2.57.ss") ; load sum and product
+(load "x.2.58.ss") ; load infix operations
 
 (define (deriv exp var)
   (cond ((number? exp) 0)

@@ -1,0 +1,36 @@
+(define (make-exponentiation x n)
+  (cond ((=n n 0) 1)
+        ((=n n 1) x)
+        ((and (number? x) (number? n)) (^ x n))
+        (else (list x '^ n))))
+
+(define (make-sum a b)
+  (cond ((=n a 0) b)
+        ((=n b 0) a)
+        ((and (number? a) (number? b)) (+ a b))
+        (else (list a '+ b))))
+
+(define (make-product a b)
+  (cond ((or (=n a 0) (=n b 0)) 0)
+        ((=n a 1) b)
+        ((=n b 1) a)
+        ((and (number? a) (number? b)) (* a b))
+        (else (list a '* b))))
+
+(define (sum? exp)
+  (and (list? exp) (eq? (cadr exp) '+)))
+(define (product? exp)
+  (and (list? exp) (eq? (cadr exp) '*)))
+(define (exponentiation? exp)
+  (and (list? exp) (eq? (cadr exp) '^)))
+
+(define base car)
+(define exponent caddr)
+
+(define addend car)
+(define (augend exp)
+  (accumulate make-sum 0 (cddr exp)))
+
+(define multiplier car)
+(define (multiplicand exp)
+  (accumulate make-product 0 (cddr exp)))
