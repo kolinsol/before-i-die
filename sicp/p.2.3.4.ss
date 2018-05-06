@@ -1,5 +1,6 @@
 (load "x.2.68.ss") ; load encode function
 (load "p.2.3.3.ss") ; load set functions
+(load "x.2.69.ss") ; load huffman tree generating function
 
 (define (append* a b)
   (let ((a-l (if (list? a) a (list a)))
